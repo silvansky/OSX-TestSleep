@@ -13,6 +13,7 @@
 		C5608FBA1622FFD000B63F39 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C5608FB81622FFD000B63F39 /* Credits.rtf */; };
 		C5608FBD1622FFD000B63F39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5608FBC1622FFD000B63F39 /* AppDelegate.m */; };
 		C5608FC01622FFD100B63F39 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5608FBE1622FFD100B63F39 /* MainMenu.xib */; };
+		C5608FC71623017E00B63F39 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5608FC61623017E00B63F39 /* IOKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		C5608FBB1622FFD000B63F39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C5608FBC1622FFD000B63F39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C5608FBF1622FFD100B63F39 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C5608FC61623017E00B63F39 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5608FC71623017E00B63F39 /* IOKit.framework in Frameworks */,
 				C5608FAA1622FFCF00B63F39 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,6 +66,7 @@
 		C5608FA81622FFCF00B63F39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5608FC61623017E00B63F39 /* IOKit.framework */,
 				C5608FA91622FFCF00B63F39 /* Cocoa.framework */,
 				C5608FAB1622FFCF00B63F39 /* Other Frameworks */,
 			);

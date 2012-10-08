@@ -11,5 +11,10 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, retain) IBOutlet NSButton *toggleButton;
+@property (nonatomic, retain) IBOutlet NSTextField *timerField;
+@property (nonatomic, retain) IBOutlet NSTextField *statusField;
+
+- (IBAction)toggle:(id)sender;
 
 @end
