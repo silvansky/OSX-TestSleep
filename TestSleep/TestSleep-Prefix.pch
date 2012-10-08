@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'TestSleep' target in the 'TestSleep' project
+//
+
+#ifdef __OBJC__
+	#import <Cocoa/Cocoa.h>
+#endif
