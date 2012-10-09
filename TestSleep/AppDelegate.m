@@ -48,6 +48,14 @@
 	}
 }
 
+- (void)logAssertions
+{
+	NSLog(@"\n_____________________\n");
+    NSDictionary* assertions = nil;
+    IOPMCopyAssertionsByProcess((CFDictionaryRef*)&assertions);
+    NSLog(@"%@", assertions);
+}
+
 - (IBAction)toggle:(id)sender
 {
 	if (_assertionID == kIOPMNullAssertionID)
@@ -55,9 +63,22 @@
 		// toggle on
 		CFStringRef reasonForActivity= CFSTR("Test reason");
 
-		IOReturn success = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep, kIOPMAssertionLevelOn, reasonForActivity, &_assertionID);
+		SInt32 sysVer = 0;
+		Gestalt(gestaltSystemVersion, &sysVer);
+		CFStringRef sleepKey;
+		if (sysVer < 0x1070)
+		{
+			sleepKey = kIOPMAssertionTypeNoDisplaySleep;
+		}
+		else
+		{
+			sleepKey = kIOPMAssertionTypePreventUserIdleDisplaySleep;
+		}
+
+		IOReturn success = IOPMAssertionCreateWithName(sleepKey, kIOPMAssertionLevelOn, reasonForActivity, &_assertionID);
 		[self.statusField setStringValue:@"Assert ON"];
 		NSLog(@"*** lock: %d, success: %d", _assertionID, success);
+		[self logAssertions];
 	}
 	else
 	{
@@ -66,6 +87,7 @@
 		[self.statusField setStringValue:@"Assert OFF"];
 		NSLog(@"*** unlock: %d. success: %d", _assertionID, success);
 		_assertionID = kIOPMNullAssertionID;
+		[self logAssertions];
 	}
 	[_lastClickTime release];
 	_lastClickTime = [[NSDate date] retain];
